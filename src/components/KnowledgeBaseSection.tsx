@@ -204,8 +204,8 @@ export default function KnowledgeBaseSection() {
         <div className="mt-16 max-w-4xl mx-auto text-center">
           <div className="bg-gray-50 rounded-2xl p-8">
             <blockquote className="text-lg text-gray-700 italic mb-4">
-              "Rất ấn tượng với @custifyapp - một chiến thắng mã nguồn mở khác. Trung tâm trợ giúp/tài liệu sẵn có rất sạch sẽ. 
-              Tôi nên công khai tuyên bố - Chúng tôi yêu Custify. Trải nghiệm thật tuyệt vời!"
+              &ldquo;Rất ấn tượng với @custifyapp - một chiến thắng mã nguồn mở khác. Trung tâm trợ giúp/tài liệu sẵn có rất sạch sẽ. 
+              Tôi nên công khai tuyên bố - Chúng tôi yêu Custify. Trải nghiệm thật tuyệt vời!&rdquo;
             </blockquote>
             <div className="flex items-center justify-center gap-3">
               <div className="w-12 h-12 bg-gray-200 rounded-full"></div>

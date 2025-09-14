@@ -151,9 +151,9 @@ export default function OmnichannelSection() {
         <div className="mt-16 max-w-4xl mx-auto text-center">
           <div className="bg-white rounded-2xl p-8 shadow-sm">
             <blockquote className="text-lg text-gray-700 italic mb-4">
-              "Với một phần đáng kể doanh số bán hàng của chúng tôi diễn ra qua chat, nếu nền tảng hỗ trợ khách hàng 
+              &ldquo;Với một phần đáng kể doanh số bán hàng của chúng tôi diễn ra qua chat, nếu nền tảng hỗ trợ khách hàng 
               cốt lõi của chúng tôi không thể truy cập được, đó là một cuộc khủng hoảng. Custify đã rất cần thiết trong việc đảm bảo 
-              hệ thống quan trọng này luôn đáng tin cậy và là trung tâm của hoạt động khách hàng của chúng tôi."
+              hệ thống quan trọng này luôn đáng tin cậy và là trung tâm của hoạt động khách hàng của chúng tôi.&rdquo;
             </blockquote>
             <div className="flex items-center justify-center gap-3">
               <div className="w-12 h-12 bg-gray-200 rounded-full"></div>
