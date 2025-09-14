@@ -44,8 +44,6 @@ export default function Hero() {
                 ))}
               </div>
               <span className="font-semibold">4.5+ đánh giá</span>
-              <span className="text-gray-400">•</span>
-              <span>25k sao</span>
             </div>
             <div className="flex items-center gap-2">
               <Users className="w-5 h-5" />
