@@ -1,23 +1,27 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
-import AISection from '@/components/AISection'
-import OmnichannelSection from '@/components/OmniChannelSection'
-import KnowledgeBaseSection from '@/components/KnowledgeBaseSection'
-import SecuritySection from '@/components/SecuritySection'
+import ProblemSolution from '@/components/ProblemSolution'
+import Features from '@/components/Features'
+import Testimonials from '@/components/Testimonials'
+import TargetAudience from '@/components/TargetAudience'
+import HowItWorks from '@/components/HowItWorks'
+import SecurityPrivacy from '@/components/SecurityPrivacy'
+import FAQ from '@/components/FAQ'
 import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <main>
       <Header />
-      <main>
-        <Hero />
-        <AISection />
-        <OmnichannelSection />
-        <KnowledgeBaseSection />
-        <SecuritySection />
-      </main>
+      <Hero />
+      <ProblemSolution />
+      <Features />
+      <Testimonials />
+      <TargetAudience />
+      <HowItWorks />
+      <SecurityPrivacy />
+      <FAQ />
       <Footer />
-    </div>
+    </main>
   )
 }

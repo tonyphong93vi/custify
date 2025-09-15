@@ -13,28 +13,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Custify - Công cụ hỗ trợ khách hàng hiện đại cho doanh nghiệp của bạn",
-  description: "Trợ lý AI, bàn hỗ trợ đa kênh, cơ sở tri thức. Mọi thứ bạn cần cho hỗ trợ khách hàng liền mạch, tất cả trong một nơi.",
+  title: "Custify - Phân tích phản hồi khách hàng trong vài phút",
+  description: "Được xây dựng cho các nhà nghiên cứu cần chuyển đổi các phản hồi mở thành những hiểu biết rõ ràng, thuyết phục. Nhanh chóng.",
   icons: {
     icon: [
-      { url: '/favicon.png', sizes: 'any' },
-      { url: '/favicon.png', type: 'image/png' }
+      { url: '/custify.jpg', sizes: 'any' },
+      { url: '/custify.jpg', type: 'image/jpeg' }
     ],
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    shortcut: '/custify.jpg',
+    apple: '/custify.jpg',
     other: [
-      { rel: 'icon', url: '/favicon.png' }
+      { rel: 'icon', url: '/custify.jpg' }
     ]
   },
   openGraph: {
-    title: "Custify - Công cụ hỗ trợ khách hàng hiện đại cho doanh nghiệp của bạn",
-    description: "Trợ lý AI, bàn hỗ trợ đa kênh, cơ sở tri thức. Mọi thứ bạn cần cho hỗ trợ khách hàng liền mạch, tất cả trong một nơi.",
+    title: "Custify - Phân tích phản hồi khách hàng trong vài phút",
+    description: "Được xây dựng cho các nhà nghiên cứu cần chuyển đổi các phản hồi mở thành những hiểu biết rõ ràng, thuyết phục. Nhanh chóng.",
     images: ['/custify.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Custify - Công cụ hỗ trợ khách hàng hiện đại cho doanh nghiệp của bạn",
-    description: "Trợ lý AI, bàn hỗ trợ đa kênh, cơ sở tri thức. Mọi thứ bạn cần cho hỗ trợ khách hàng liền mạch, tất cả trong một nơi.",
+    title: "Custify - Phân tích phản hồi khách hàng trong vài phút",
+    description: "Được xây dựng cho các nhà nghiên cứu cần chuyển đổi các phản hồi mở thành những hiểu biết rõ ràng, thuyết phục. Nhanh chóng.",
     images: ['/custify.jpg'],
   },
 };
@@ -47,9 +47,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
+        <link rel="icon" href="/custify.jpg" type="image/jpeg" />
+        <link rel="shortcut icon" href="/custify.jpg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/custify.jpg" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
