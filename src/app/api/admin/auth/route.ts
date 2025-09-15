@@ -11,6 +11,12 @@ interface LoginRequest {
   password: string
 }
 
+interface JwtPayload {
+  username: string
+  role: string
+  iat: number
+}
+
 // POST - Admin login
 export async function POST(request: NextRequest) {
   try {
@@ -48,7 +54,7 @@ export async function POST(request: NextRequest) {
     console.log('Admin login successful:', {
       username: ADMIN_USERNAME,
       timestamp: new Date().toISOString(),
-      ip: request.ip || request.headers.get('x-forwarded-for') || 'unknown'
+      ip: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
     })
 
     return NextResponse.json({
@@ -82,7 +88,7 @@ export async function GET(request: NextRequest) {
     const token = authHeader.substring(7) // Remove 'Bearer ' prefix
 
     try {
-      const decoded = jwt.verify(token, JWT_SECRET) as any
+      const decoded = jwt.verify(token, JWT_SECRET) as JwtPayload
       
       return NextResponse.json({
         success: true,
@@ -91,7 +97,7 @@ export async function GET(request: NextRequest) {
           role: decoded.role
         }
       })
-    } catch (jwtError) {
+    } catch {
       return NextResponse.json(
         { success: false, error: 'Invalid token' },
         { status: 401 }

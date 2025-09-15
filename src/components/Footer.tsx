@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+import Image from 'next/image'
 import { Linkedin } from 'lucide-react'
 
 export default function Footer() {
@@ -10,10 +12,12 @@ export default function Footer() {
           {/* Logo and Newsletter */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
-              <img 
+              <Image 
                 src="/custify.jpg" 
                 alt="Custify" 
-                className="h-8 w-8 rounded-lg mr-2"
+                width={32}
+                height={32}
+                className="rounded-lg mr-2"
               />
               <span className="text-2xl font-bold">Custify</span>
             </div>
@@ -44,10 +48,10 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Liên kết nhanh</h3>
             <ul className="space-y-2">
-              <li><a href="/" className="text-gray-400 hover:text-white transition-colors">Trang chủ</a></li>
-              <li><a href="/about" className="text-gray-400 hover:text-white transition-colors">Giới thiệu</a></li>
+              <li><Link href="/" className="text-gray-400 hover:text-white transition-colors">Trang chủ</Link></li>
+              <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">Giới thiệu</Link></li>
               <li><a href="#market-research" className="text-gray-400 hover:text-white transition-colors">Nghiên cứu thị trường</a></li>
-              <li><a href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+              <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
               <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Liên hệ</a></li>
             </ul>
           </div>

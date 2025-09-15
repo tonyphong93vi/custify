@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { FileText, Zap } from 'lucide-react'
 
 export default function ProblemSolution() {
@@ -32,10 +33,12 @@ export default function ProblemSolution() {
             </div>
             <div className="text-center">
               <div className="bg-gray-100 rounded-2xl p-8 h-80 flex items-center justify-center">
-                <img 
+                <Image 
                   src="/good_bye_paper.svg" 
                   alt="Goodbye paperwork - AI automation" 
-                  className="w-full h-full object-contain"
+                  width={320}
+                  height={320}
+                  className="object-contain"
                 />
               </div>
             </div>

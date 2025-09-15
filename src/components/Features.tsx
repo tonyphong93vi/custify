@@ -1,6 +1,6 @@
 'use client'
 
-import { Search, Zap, FileText, BarChart3 } from 'lucide-react'
+import { Search, Zap, FileText } from 'lucide-react'
 
 export default function Features() {
   const features = [

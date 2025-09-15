@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 export default function BlogHero() {
   return (
     <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
@@ -8,10 +10,12 @@ export default function BlogHero() {
           {/* Logo */}
           <div className="mb-8">
             <div className="flex items-center justify-center">
-              <img 
+              <Image 
                 src="/custify.jpg" 
                 alt="Custify" 
-                className="h-12 w-12 rounded-lg mr-3"
+                width={48}
+                height={48}
+                className="rounded-lg mr-3"
               />
               <span className="text-4xl font-bold text-gray-900">
                 Custify

@@ -5,6 +5,12 @@ import jwt from 'jsonwebtoken'
 
 const JWT_SECRET = process.env.JWT_SECRET || 'custify-admin-secret-key-2025'
 
+interface JwtPayload {
+  username: string
+  role: string
+  iat: number
+}
+
 // Verify admin token
 function verifyAdminToken(request: NextRequest) {
   const authHeader = request.headers.get('authorization')
@@ -16,9 +22,9 @@ function verifyAdminToken(request: NextRequest) {
   const token = authHeader.substring(7)
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET) as any
+    const decoded = jwt.verify(token, JWT_SECRET) as JwtPayload
     return decoded
-  } catch (error) {
+  } catch {
     return null
   }
 }
@@ -88,7 +94,7 @@ export async function GET(request: NextRequest) {
       data: submissions,
       count: submissions.length 
     })
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to retrieve submissions' },
       { status: 500 }
@@ -125,7 +131,7 @@ export async function POST(request: NextRequest) {
       name: name.trim(),
       phone: phone.trim(),
       timestamp: new Date().toISOString(),
-      ip: request.ip || request.headers.get('x-forwarded-for') || 'unknown',
+      ip: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown',
       userAgent: request.headers.get('user-agent') || 'unknown'
     }
 

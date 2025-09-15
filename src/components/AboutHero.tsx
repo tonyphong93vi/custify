@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import DemoModal from './DemoModal'
 
 export default function AboutHero() {
@@ -13,10 +14,12 @@ export default function AboutHero() {
           {/* Logo */}
           <div className="mb-8">
             <div className="flex items-center justify-center">
-              <img 
+              <Image 
                 src="/custify.jpg" 
                 alt="Custify" 
-                className="h-12 w-12 rounded-lg mr-3"
+                width={48}
+                height={48}
+                className="rounded-lg mr-3"
               />
               <span className="text-4xl font-bold text-gray-900">
                 Custify

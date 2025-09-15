@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import DemoModal from './DemoModal'
 
@@ -14,29 +16,31 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" className="flex items-center">
-              <img 
+            <Link href="/" className="flex items-center">
+              <Image 
                 src="/custify.jpg" 
                 alt="Custify" 
-                className="h-8 w-8 rounded-lg mr-2"
+                width={32}
+                height={32}
+                className="rounded-lg mr-2"
               />
               <span className="text-2xl font-bold text-gray-900">
                 Custify
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <a href="/" className="text-gray-700 hover:text-gray-900 font-medium">
+            <Link href="/" className="text-gray-700 hover:text-gray-900 font-medium">
               Trang chủ
-            </a>
-            <a href="/about" className="text-gray-700 hover:text-gray-900 font-medium">
+            </Link>
+            <Link href="/about" className="text-gray-700 hover:text-gray-900 font-medium">
               Giới thiệu
-            </a>
-            <a href="/blog" className="text-gray-700 hover:text-gray-900 font-medium">
+            </Link>
+            <Link href="/blog" className="text-gray-700 hover:text-gray-900 font-medium">
               Blog
-            </a>
+            </Link>
             <a href="#contact" className="text-gray-700 hover:text-gray-900 font-medium">
               Liên hệ
             </a>
@@ -70,15 +74,15 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
-              <a href="/" className="block px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
+              <Link href="/" className="block px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
                 Trang chủ
-              </a>
-              <a href="/about" className="block px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
+              </Link>
+              <Link href="/about" className="block px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
                 Giới thiệu
-              </a>
-              <a href="/blog" className="block px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
+              </Link>
+              <Link href="/blog" className="block px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
                 Blog
-              </a>
+              </Link>
               <a href="#contact" className="block px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
                 Liên hệ
               </a>

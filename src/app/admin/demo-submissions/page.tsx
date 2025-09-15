@@ -44,7 +44,7 @@ function AdminDemoSubmissionsContent() {
           setError(data.error || 'Failed to fetch submissions')
         }
       }
-    } catch (err) {
+    } catch {
       setError('Network error occurred')
     } finally {
       setLoading(false)

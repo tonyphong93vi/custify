@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+// import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import AdminProtected from '@/components/AdminProtected'
 import { Users, FileText, BarChart3, Settings } from 'lucide-react'
