@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import fs from 'fs'
-import path from 'path'
+import { kv } from '@vercel/kv'
 import jwt from 'jsonwebtoken'
 
 const JWT_SECRET = process.env.JWT_SECRET || 'custify-admin-secret-key-2025'
@@ -38,40 +37,38 @@ interface DemoSubmission {
   userAgent?: string
 }
 
-// File path for storing demo submissions
-const DATA_FILE = path.join(process.cwd(), 'data', 'demo-submissions.json')
+// Key for storing demo submissions in KV
+const SUBMISSIONS_KEY = 'demo-submissions'
 
-// Ensure data directory exists
-function ensureDataDirectory() {
-  const dataDir = path.dirname(DATA_FILE)
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true })
-  }
-}
-
-// Read existing submissions
-function readSubmissions(): DemoSubmission[] {
-  ensureDataDirectory()
-  if (!fs.existsSync(DATA_FILE)) {
-    return []
-  }
-  
+// Read existing submissions from KV
+async function readSubmissions(): Promise<DemoSubmission[]> {
   try {
-    const data = fs.readFileSync(DATA_FILE, 'utf8')
-    return JSON.parse(data)
+    // Check if KV is configured
+    if (!process.env.KV_URL) {
+      console.warn('KV not configured, returning empty array')
+      return []
+    }
+    
+    const submissions = await kv.get<DemoSubmission[]>(SUBMISSIONS_KEY)
+    return submissions || []
   } catch (error) {
-    console.error('Error reading submissions:', error)
+    console.error('Error reading submissions from KV:', error)
     return []
   }
 }
 
-// Write submissions to file
-function writeSubmissions(submissions: DemoSubmission[]) {
-  ensureDataDirectory()
+// Write submissions to KV
+async function writeSubmissions(submissions: DemoSubmission[]): Promise<void> {
   try {
-    fs.writeFileSync(DATA_FILE, JSON.stringify(submissions, null, 2))
+    // Check if KV is configured
+    if (!process.env.KV_URL) {
+      console.warn('KV not configured, cannot save submissions')
+      throw new Error('KV storage not configured. Please setup Vercel KV.')
+    }
+    
+    await kv.set(SUBMISSIONS_KEY, submissions)
   } catch (error) {
-    console.error('Error writing submissions:', error)
+    console.error('Error writing submissions to KV:', error)
     throw error
   }
 }
@@ -88,7 +85,7 @@ export async function GET(request: NextRequest) {
       )
     }
 
-    const submissions = readSubmissions()
+    const submissions = await readSubmissions()
     return NextResponse.json({ 
       success: true, 
       data: submissions,
@@ -136,11 +133,11 @@ export async function POST(request: NextRequest) {
     }
 
     // Read existing submissions and add new one
-    const submissions = readSubmissions()
+    const submissions = await readSubmissions()
     submissions.push(submission)
 
-    // Write back to file
-    writeSubmissions(submissions)
+    // Write back to KV
+    await writeSubmissions(submissions)
 
     // Log to console for immediate feedback
     console.log('New demo submission:', {
